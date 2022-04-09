@@ -5,10 +5,6 @@
 }
 body {
     background-color: black;
-    min-height: 100vh;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
     color: #fff;
     font-family: sans-serif;
 }
@@ -36,7 +32,7 @@ p {
     top: 0;
     right: 0;
     width: 10px;
-    background: linear-gradient(to top, #fff, #000);
+    background: linear-gradient(to top, #00efff, #0f0);
     animation: progressbar 5s linear infinite;
 }
 @keyframes progressbar {
@@ -56,7 +52,7 @@ p {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(to top, #fff, #000);
+    background: linear-gradient(to top, #00efff, #0f0);
     filter: blur(10px);
 }
 #progressbar:after {
@@ -66,7 +62,7 @@ p {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(to top, #fff, #000);
+    background: linear-gradient(to top, #00efff, #0f0);
     filter: blur(30px);
 }
 /**/
@@ -98,18 +94,32 @@ p {
     text-transform: uppercase;
     font-weight: bold;
     line-height: 50px;
-    transition: 0.3s ease;
+    transition: 0.3s ease-in;
+    background-color: #00efff;
+    animation: rainbownav 5s linear infinite;
+    background: transparent;
 }
 #nav ul li a:hover, #nav ul li a.active {
-    background: #f00;
-    box-shadow: 0px 0px 25px 0px #f00;
+    background: #00efff;
+    box-shadow: 0px 0px 25px 0px #00efff;
+    animation: rainbownav 5s linear infinite;
 }
-
+@keyframes rainbownav {
+    0% {
+        filter: hue-rotate(0deg);
+    }
+    100% {
+        filter: hue-rotate(360deg);
+    }
+}
 /* chaoticrainbowballs */
 .chaoticrainbowballs {
     position: relative;
     width: 50px;
     height: 50px;
+    border-radius: 50%;
+    transition: ease 2s;
+    box-shadow: 0 0 0 #fff;
 }
 .chaoticrainbowballs span {
     position: absolute;
@@ -141,8 +151,11 @@ p {
      -7px 7px 20px #00efff;
     animation: chaoanim 5s linear infinite;
     animation-delay: calc(-0.25s * var(--i));
-    transform-origin: 20px;
-    transition: 2s;
+    transform-origin: 7px;
+    transition: ease 2s;
+}
+.chaoticrainbowballs:hover {
+    box-shadow: 0 0 100px #fff;
 }
 .chaoticrainbowballs:hover span::before {
     box-shadow: 0 0 20px #00efff,
@@ -199,7 +212,7 @@ p {
      -200px 137px 0 #00efff,
      -200px 137px 20px #00efff;
     transform-origin: 200px;
-    transform-origin: calc(20px * var(--i));
+    transform-origin: calc(20px * var(--i) / 2);
 }
 @keyframes chaoanim {
     0% {
